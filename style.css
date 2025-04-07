@@ -1,0 +1,185 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    /* Remove padding or reduce it */
+    padding: 0;  
+
+    /* Instead of fully hidden, allow vertical scroll if needed */
+    overflow-x: hidden;
+    overflow-y: auto; 
+
+    position: relative; /* Keeps confetti positioned correctly */
+    margin: 0;          /* Remove default body margin */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    position: relative; /* Keep card above confetti */
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63; /* Pinkish color */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.9em;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.message {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Responsive Video Container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background-color: #eee; /* Placeholder background */
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
+    border-radius: 10px; /* Match container */
+}
+
+/* Styling for the instruction text if iframe isn't pasted yet */
+.video-container .instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 0.9em;
+    padding: 20px;
+    width: 80%;
+}
+.video-container .instructions strong {
+    color: #e91e63;
+}
+
+/* Styling for the fallback link button */
+.video-link-button {
+    display: inline-block;
+    background-color: #ff4081; /* Vibrant pink */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.4);
+    /* Position it nicely if iframe isn't used */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-link-button:hover {
+    background-color: #e91e63; /* Darker pink on hover */
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.signature {
+    font-size: 1em;
+    color: #777;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Confetti Styles */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Behind the card */
+    pointer-events: none; /* Allow clicks through */
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Fallback, gets overwritten */
+    opacity: 0.8;
+    border-radius: 2px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .message {
+        font-size: 1em;
+    }
+    .card {
+        padding: 20px 25px;
+    }
+    .video-link-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Something For You...</title> <!-- ☆ CHANGE THIS TITLE IF YOU WANT ☆ -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="confetti-container"></div>
+
+    <div class="card">
+        <h1><span class="heart">💖</span> A Little Song For You...</h1>
+        <!-- ☆☆☆ WRITE YOUR PERSONAL MESSAGE HERE! ☆☆☆ -->
+        <p class="message">
+            Hey [Her Name], <br><br>
+            I was thinking about you and wanted to share something I put together.
+            Hope it makes you smile! 😊
+        </p>
+        <!-- ☆☆☆ END OF PERSONAL MESSAGE ☆☆☆ -->
+
+        <div class="video-container">
+            <!-- Embedded Google Drive video -->
+            <iframe 
+                src="https://drive.google.com/file/d/1FgL7DmrJ3K0YmzHPZ9vInH5VHBLtRObR/preview" 
+                width="640" 
+                height="480" 
+                allow="autoplay"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p class="signature">
+            Hope you like it!<br>
+            - [Your Name] <!-- ☆ CHANGE TO YOUR NAME ☆ -->
+        </p>
+    </div>
+
+    <!-- Simple confetti effect script -->
+    <script>
+        const confettiContainer = document.querySelector('.confetti-container');
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5 seconds
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            confettiContainer.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
